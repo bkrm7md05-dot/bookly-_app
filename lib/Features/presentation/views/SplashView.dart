@@ -9,3 +9,14 @@ class SplashView extends StatelessWidget {
     return Scaffold(body: Splashviewbody());
   }
 }
+/*
+echo "# bookly-_app" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/bkrm7md05-dot/bookly-_app.git
+git push -u origin main
+
+
+*/
