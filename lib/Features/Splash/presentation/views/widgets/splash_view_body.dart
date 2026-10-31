@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:project/Core/utils/assets.dart';
 import 'package:project/Features/Splash/presentation/views/widgets/slidingText.dart';
