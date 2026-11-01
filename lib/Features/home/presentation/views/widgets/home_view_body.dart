@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/Core/utils/assets.dart';
+import 'package:project/Core/utils/styles.dart';
 import 'package:project/Features/home/presentation/views/widgets/custom_appBar.dart';
 import 'package:project/Features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:project/Features/home/presentation/views/widgets/featured_list_view_item.dart';
@@ -12,7 +13,7 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children:
-         const [
+          [
           CustomAppBar(),
         
 
@@ -21,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(height: 50,),
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: Text("Best Seller ", style: TextStyle(),),
+            child: Text("Best Seller ", style: Styles.textStyle18,),
           ),
 
           BestSellerListViewItem(),
