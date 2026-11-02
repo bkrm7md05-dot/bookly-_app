@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/Core/utils/assets.dart';
+import 'package:project/Core/utils/styles.dart';
 import 'package:project/Features/home/presentation/views/widgets/featured_list_view_item.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -13,9 +14,24 @@ class BookDetailsViewBody extends StatelessWidget {
       child: Column(
         children: [
           const CustomBookDetailsAppBar(),
+
           Padding(
-            padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .2),
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * .2,
+            ),
             child: const FeaturedListViewItem(),
+          ),
+          const SizedBox(height: 43),
+
+          Text("The Jungle Book", style: Styles.textStyle30),
+          const SizedBox(height: 6),
+
+          Opacity(
+            opacity: 0.7,
+            child: Text(
+              "Rudyard Kipling",
+              style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
+            ),
           ),
         ],
       ),
