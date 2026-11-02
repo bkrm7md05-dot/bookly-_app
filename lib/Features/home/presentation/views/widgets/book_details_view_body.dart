@@ -53,8 +53,7 @@ class CustomBookDetailsAppBar extends StatelessWidget {
 
         IconButton(
           onPressed: () {
-            GoRouter.of(context).push(AppRouter.kSearchView);
-          },
+            },
           icon: Icon(Icons.shopping_cart_outlined),
         ),
       ],
