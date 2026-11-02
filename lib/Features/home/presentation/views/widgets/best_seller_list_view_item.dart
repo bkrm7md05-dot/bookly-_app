@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/Core/utils/assets.dart';
 import 'package:project/Core/utils/styles.dart';
-import 'package:project/Features/home/presentation/views/widgets/bokk_rating.dart';
+import 'package:project/Features/home/presentation/views/widgets/book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
