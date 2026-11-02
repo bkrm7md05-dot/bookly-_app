@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/Core/utils/assets.dart';
 import 'package:project/Core/utils/styles.dart';
+import 'package:project/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:project/Features/home/presentation/views/widgets/featured_list_view_item.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -33,6 +34,10 @@ class BookDetailsViewBody extends StatelessWidget {
               style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
             ),
           ),
+
+          SizedBox(height: 18,),
+
+          BookRating(mainAxisAlignment: MainAxisAlignment.center,),
         ],
       ),
     );
