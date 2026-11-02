@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:go_router/go_router.dart';
+import 'package:project/Core/utils/app_router.dart';
 import 'package:project/Core/utils/assets.dart';
 import 'package:project/Features/Splash/presentation/views/widgets/slidingText.dart';
 import 'package:project/Features/home/presentation/views/home_view.dart';
@@ -27,7 +28,6 @@ class _splashViewBodyState extends State<splashViewBody>
     initSlidingAnimation();
   }
 
-  
   @override
   void dispose() {
     // TODO: implement dispose
@@ -49,15 +49,10 @@ class _splashViewBodyState extends State<splashViewBody>
       ],
     );
   }
+
   void navigateToHome() {
-     Future.delayed(const Duration(seconds: 2), () {
-      Get.to(
-        () => const HomeView(),
-        transition: Transition.fade, 
-      
-        duration: Duration(seconds: kTransitionDuration.inSeconds),
-        );
-    
+    Future.delayed(const Duration(seconds: 2), () {
+      GoRouter.of(context).push(AppRouter.kHomeView);
     });
   }
 
