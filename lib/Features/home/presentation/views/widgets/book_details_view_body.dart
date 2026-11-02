@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project/Core/utils/Widgets/custom_button.dart';
 import 'package:project/Core/utils/assets.dart';
 import 'package:project/Core/utils/styles.dart';
 import 'package:project/Features/home/presentation/views/widgets/book_rating.dart';
+import 'package:project/Features/home/presentation/views/widgets/books_action.dart';
 import 'package:project/Features/home/presentation/views/widgets/featured_list_view_item.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -24,20 +26,26 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 43),
 
-          Text("The Jungle Book", style: Styles.textStyle30),
+          const Text("The Jungle Book", style: Styles.textStyle30),
           const SizedBox(height: 6),
 
-          Opacity(
+           Opacity(
             opacity: 0.7,
             child: Text(
               "Rudyard Kipling",
-              style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
+              style: Styles.textStyle18.copyWith(
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
 
-          SizedBox(height: 18,),
+          const SizedBox(height: 18),
 
-          BookRating(mainAxisAlignment: MainAxisAlignment.center,),
+           BookRating(mainAxisAlignment: MainAxisAlignment.center),
+
+         const SizedBox(height: 37),
+         const BooksAction(),
         ],
       ),
     );
@@ -59,3 +67,4 @@ class CustomBookDetailsAppBar extends StatelessWidget {
     );
   }
 }
+
