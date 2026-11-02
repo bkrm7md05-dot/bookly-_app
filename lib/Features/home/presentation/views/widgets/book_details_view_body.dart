@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:project/Core/utils/Widgets/custom_button.dart';
+import 'package:project/Core/utils/app_router.dart';
 import 'package:project/Core/utils/assets.dart';
 import 'package:project/Core/utils/styles.dart';
 import 'package:project/Features/home/presentation/views/widgets/book_rating.dart';
@@ -49,7 +51,12 @@ class CustomBookDetailsAppBar extends StatelessWidget {
       children: [
         IconButton(onPressed: () {}, icon: Icon(Icons.close)),
 
-        IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined)),
+        IconButton(
+          onPressed: () {
+            GoRouter.of(context).push(AppRouter.kSearchView);
+          },
+          icon: Icon(Icons.shopping_cart_outlined),
+        ),
       ],
     );
   }
