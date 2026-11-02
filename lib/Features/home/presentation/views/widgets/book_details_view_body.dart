@@ -4,8 +4,9 @@ import 'package:project/Core/utils/assets.dart';
 import 'package:project/Core/utils/styles.dart';
 import 'package:project/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:project/Features/home/presentation/views/widgets/books_action.dart';
+import 'package:project/Features/home/presentation/views/widgets/books_details_section.dart';
 import 'package:project/Features/home/presentation/views/widgets/featured_list_view_item.dart';
-import 'package:project/Features/home/presentation/views/widgets/similar_box_list_view.dart';
+import 'package:project/Features/home/presentation/views/widgets/similar_books_section.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
@@ -13,51 +14,27 @@ class BookDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //var width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        children: [
-          const CustomBookDetailsAppBar(),
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                const CustomBookDetailsAppBar(),
 
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * .2,
-            ),
-            child: const FeaturedListViewItem(),
-          ),
-          const SizedBox(height: 30),
+                const BooksDetailsSection(),
 
-          const Text("The Jungle Book", style: Styles.textStyle30),
-          const SizedBox(height: 6),
+                const Expanded(child: SizedBox(height: 35)),
 
-           Opacity(
-            opacity: 0.7,
-            child: Text(
-              "Rudyard Kipling",
-              style: Styles.textStyle18.copyWith(
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w500,
-              ),
+                const SimilarBooksSection(),
+                const SizedBox(height: 14),
+              ],
             ),
           ),
-
-          const SizedBox(height: 18),
-
-           BookRating(mainAxisAlignment: MainAxisAlignment.center),
-
-         const SizedBox(height: 24),
-         const BooksAction(),
-         SizedBox(height: 35,),
-         Align(
-          alignment: AlignmentGeometry.centerLeft,
-          child: Text("You Can Also Like", style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),)),
-
-          const SizedBox(height: 14,),
-          const SimilarBooksListView(),
-          const SizedBox(height: 14,),
-          
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -77,6 +54,3 @@ class CustomBookDetailsAppBar extends StatelessWidget {
     );
   }
 }
-
-
-
