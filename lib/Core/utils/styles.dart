@@ -19,7 +19,7 @@ abstract class Styles {
  static const textStyle18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
-    fontFamily: 'Montserrat',
+    //fontFamily: 'Montserrat',
   
   );
  static const textStyle16 = TextStyle(
