@@ -10,31 +10,26 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-     // shrinkWrap: true,
-      slivers: 
-      const [
-         SliverToBoxAdapter(
+      // shrinkWrap: true,
+      slivers: const [
+        SliverToBoxAdapter(
           child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-         CustomAppBar(),
-    
-         FeaturedBooksListView(),
-    
-         SizedBox(height: 50),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text("Best Seller ", style: Styles.textStyle18),
-        ),
-    
-         
-      ],
-    ),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomAppBar(),
+
+              FeaturedBooksListView(),
+
+              SizedBox(height: 50),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("Best Seller ", style: Styles.textStyle18),
+              ),
+            ],
+          ),
         ),
 
-        SliverFillRemaining(
-          child: BestSellerListView(),
-        ),
+        SliverFillRemaining(child: BestSellerListView()),
       ],
     );
   }
@@ -46,9 +41,8 @@ class BestSellerListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-     
       physics: const NeverScrollableScrollPhysics(),
-      
+
       padding: EdgeInsets.zero,
       itemCount: 10,
       itemBuilder: (context, index) {

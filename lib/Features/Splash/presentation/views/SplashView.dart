@@ -6,11 +6,7 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      body: splashViewBody()
-      
-      );
+    return Scaffold(body: splashViewBody());
   }
 }
 /*
@@ -24,16 +20,6 @@ git push -u origin main
 
 
 */
-
-
-
-
-
-
-
-
-
-
 
 /*
   

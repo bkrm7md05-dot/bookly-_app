@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:project/Core/utils/styles.dart';
 import 'package:project/Features/home/presentation/views/widgets/similar_box_list_view.dart';
