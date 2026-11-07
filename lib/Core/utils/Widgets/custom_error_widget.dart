@@ -4,7 +4,7 @@ import 'package:project/Core/utils/styles.dart';
 
 class CustomErrorWidget extends StatelessWidget {
 
-  const CustomErrorWidget({required this.errMessage});
+  const CustomErrorWidget({super.key, required this.errMessage});
   final String errMessage;
 
   @override

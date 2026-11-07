@@ -13,7 +13,7 @@ class FeaturedBooksLoading extends FeaturedBooksState {}
 
 class FeaturedBooksFailure extends FeaturedBooksState {
   final String errorMessage;
-  FeaturedBooksFailure({required this.errorMessage});
+  const FeaturedBooksFailure({required this.errorMessage});
 }
 
 class FeaturedBooksSuccess extends FeaturedBooksState {

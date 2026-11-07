@@ -15,7 +15,10 @@ class BooksDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * .2,
           ),
-          child: const FeaturedListViewItem(),
+         
+         child: FeaturedListViewItem(imageUrl: 'http://books.google.com/books/content?id=s-IH_x6ytuQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',)  ,
+            
+            
         ),
         const SizedBox(height: 30),
 

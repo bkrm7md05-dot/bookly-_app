@@ -22,9 +22,9 @@ class FeaturedBooksListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: books.length,
               itemBuilder: (context, index) {
-                return const Padding(
+                return  Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8),
-                  child: FeaturedListViewItem(),
+                  child: FeaturedListViewItem(imageUrl:  books[index].volumeInfo!.imageLinks!.thumbnail!??' http://books.google.com/books/content?id=s-IH_x6ytuQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api'),
                 );
               },
             ),
@@ -32,7 +32,7 @@ class FeaturedBooksListView extends StatelessWidget {
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorWidget(errMessage: state.errorMessage);
         } else {
-          return const CustomLoadingIndicator();
+          return  CustomLoadingIndicator();
         }
       },
     );
