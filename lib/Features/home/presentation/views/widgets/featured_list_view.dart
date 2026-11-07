@@ -24,7 +24,7 @@ class FeaturedBooksListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return  Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8),
-                  child: FeaturedListViewItem(imageUrl:  books[index].volumeInfo!.imageLinks!.thumbnail!??' http://books.google.com/books/content?id=s-IH_x6ytuQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api'),
+                  child: FeaturedListViewItem(imageUrl:  books[index].volumeInfo!.imageLinks!.thumbnail! ?? 'http://books.google.com/books/content?id=s-IH_x6ytuQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api'),
                 );
               },
             ),

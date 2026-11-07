@@ -1,6 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:project/Core/utils/assets.dart';
-import 'package:project/Features/home/data/Models/book_model/book_model.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
   final String imageUrl;
@@ -8,19 +7,18 @@ class FeaturedListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.2 / 3.6,
-      child: Container(
-        width: 120,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(18),
-
-          image: DecorationImage(
+    return ClipRRect(
+      borderRadius: BorderRadiusGeometry.circular(16),
+      child: AspectRatio(
+          aspectRatio: 2.2 / 3.6,
+          
+          child: CachedNetworkImage(
             fit: BoxFit.fill,
-            image: NetworkImage( imageUrl),
-          ),
-        ),
-      ),
-    );
+            placeholder: (context, url) => const CircularProgressIndicator(),
+              imageUrl: imageUrl ,
+              errorWidget: (context, url, error) => const  Icon(Icons.error),
+          )
+      )
+                      );
   }
 }
