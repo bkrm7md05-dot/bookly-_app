@@ -28,9 +28,8 @@ class HomoRepoImpl implements HomeRepo {
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
-      } 
-        return left(ServerFailure(e.toString()));
-      
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -40,7 +39,7 @@ class HomoRepoImpl implements HomeRepo {
     List<BookModel> books = [];
     try {
       var data = await apiService.get(
-        endPoint: 'q=Programming&Sorting=newest&filter=free-ebooks',
+        endPoint: 'q=Programming&filter=free-ebooks',
       );
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
@@ -49,12 +48,10 @@ class HomoRepoImpl implements HomeRepo {
       return Right(books);
     } catch (e) {
       if (e is DioException) {
-          return left(ServerFailure.fromDioException(e));
-      
-        
+        return left(ServerFailure.fromDioException(e));
       }
       return left(ServerFailure(e.toString()));
-     
+
       // TODO
     }
   }
