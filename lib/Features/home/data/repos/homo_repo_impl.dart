@@ -16,7 +16,7 @@ class HomoRepoImpl implements HomeRepo {
 
     try {
       var data = await apiService.get(
-        endPoint: 'q=Cooking&Sorting=newest&filter=free-ebooks',
+        endPoint: 'q=Programming&Sorting=newest&filter=free-ebooks',
       );
 
       List<BookModel> books = [];
