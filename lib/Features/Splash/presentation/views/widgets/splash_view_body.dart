@@ -3,8 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:project/Core/utils/app_router.dart';
 import 'package:project/Core/utils/assets.dart';
 import 'package:project/Features/Splash/presentation/views/widgets/slidingText.dart';
-import 'package:project/Features/home/presentation/views/home_view.dart';
-import 'package:project/constants.dart';
 
 class splashViewBody extends StatefulWidget {
   const splashViewBody({super.key});

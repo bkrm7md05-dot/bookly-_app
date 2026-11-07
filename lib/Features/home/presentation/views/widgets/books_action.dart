@@ -39,6 +39,5 @@ class BooksAction extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }

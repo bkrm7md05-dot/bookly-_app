@@ -1,4 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project/Core/errors/failure.dart';
 import 'package:project/Core/utils/api_service.dart';
 import 'package:project/Features/home/data/Models/book_model/book_model.dart';
@@ -10,8 +12,8 @@ class HomoRepoImpl implements HomeRepo {
   HomoRepoImpl({required this.apiService});
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchBestSellerBox() async {
-    // TODO: implement fetchBestSellerBox
+  Future<Either<Failure, List<BookModel>>> fetchNewsBooks() async {
+    // TODO: implement fetchBestSellerBooks
 
     try {
       var data = await apiService.get(
@@ -23,14 +25,37 @@ class HomoRepoImpl implements HomeRepo {
         books.add(BookModel.fromJson(item));
       }
       return right(books);
-    } on Exception catch (e) {
-      return Left(ServerFailure());
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } 
+        return left(ServerFailure(e.toString()));
+      
     }
   }
 
   @override
-  Future<Either<dynamic, dynamic>> fetchFeaturedBox() {
-    // TODO: implement fetchFeaturedBox
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    // TODO: implement fetchFeaturedBooks
+    List<BookModel> books = [];
+    try {
+      var data = await apiService.get(
+        endPoint: 'q=Programming&Sorting=newest&filter=free-ebooks',
+      );
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+          return left(ServerFailure.fromDioException(e));
+      
+        
+      }
+      return left(ServerFailure(e.toString()));
+     
+      // TODO
+    }
   }
 }

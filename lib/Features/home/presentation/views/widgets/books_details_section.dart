@@ -5,7 +5,7 @@ import 'package:project/Features/home/presentation/views/widgets/books_action.da
 import 'package:project/Features/home/presentation/views/widgets/featured_list_view_item.dart';
 
 class BooksDetailsSection extends StatelessWidget {
-  const BooksDetailsSection();
+  const BooksDetailsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
