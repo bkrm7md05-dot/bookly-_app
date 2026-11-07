@@ -13,6 +13,7 @@ void setup() {
   getIt.registerSingleton<ApiService>(ApiService(Dio()));
 
   getIt.registerSingleton<HomoRepoImpl>(
-    HomoRepoImpl(apiService: getIt.get<ApiService>()),
+    HomoRepoImpl(apiService: getIt.get<ApiService>(),
+    ),
   );
 }

@@ -10,6 +10,7 @@ import 'package:project/Features/home/presentation/manager/featured_books_cubit/
 import 'package:project/Features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 
 void main() {
+  setup();
   runApp(const BooklyApp());
 }
 
@@ -19,22 +20,26 @@ class BooklyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: 
-      [
-        BlocProvider(create: (context) => FeaturedBooksCubit(homeRepo: getIt.get<HomoRepoImpl>())),
-        
-        BlocProvider(create: (context) => NewestBooksCubit(homeRepo: getIt.get<HomoRepoImpl>()),),
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              FeaturedBooksCubit(homeRepo: getIt.get<HomoRepoImpl>())
+                ..fetchFeaturedBooks(),
+        ),
 
-
+        BlocProvider(
+          create: (context) =>
+              NewestBooksCubit(homeRepo: getIt.get<HomoRepoImpl>()),
+        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: Color(0xff100B20),
-      
+
           textTheme: ThemeData.dark().textTheme.apply(fontFamily: 'Montserrat'),
         ),
-      
+
         debugShowCheckedModeBanner: false,
       ),
     );
