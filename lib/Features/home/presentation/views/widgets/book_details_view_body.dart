@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:project/Features/home/presentation/views/widgets/books_details_section.dart';
 import 'package:project/Features/home/presentation/views/widgets/similar_books_section.dart';
 
@@ -41,7 +42,11 @@ class CustomBookDetailsAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.close)),
+        IconButton(onPressed: () 
+        {
+          
+
+        }, icon: Icon(Icons.close)),
 
         IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined)),
       ],

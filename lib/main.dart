@@ -5,6 +5,7 @@ import 'package:project/Core/utils/service_locator.dart';
 import 'package:project/Features/home/data/repos/homo_repo_impl.dart';
 import 'package:project/Features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:project/Features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
+import 'package:project/Features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 
 void main() {
   setup();
@@ -29,6 +30,8 @@ class BooklyApp extends StatelessWidget {
               NewestBooksCubit(homeRepo: getIt.get<HomoRepoImpl>())..fetchNewestBooks()
               ,
         ),
+
+
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
