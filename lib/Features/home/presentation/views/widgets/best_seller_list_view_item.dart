@@ -1,12 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:project/Core/utils/app_router.dart';
 import 'package:project/Core/utils/assets.dart';
 import 'package:project/Core/utils/styles.dart';
+import 'package:project/Features/home/data/Models/book_model/book_model.dart';
 import 'package:project/Features/home/presentation/views/widgets/book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+  final BookModel book;
+  const BestSellerListViewItem({super.key,required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +23,17 @@ class BestSellerListViewItem extends StatelessWidget {
         child: Row(
           children: [
             const SizedBox(width: 20),
-
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                height: 125,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(clsAssets.book1Highlight),
+            ClipRRect(
+              borderRadius: BorderRadiusGeometry.circular(16),
+              child: AspectRatio(
+                aspectRatio: 2.5 / 4,
+                child: CachedNetworkImage(
+                  imageUrl: book.volumeInfo!.imageLinks!.thumbnail!,
+                  errorWidget: (context, url, error) =>  Icon(Icons.error),
+                  fit: BoxFit.fill,
+                 // placeholder: (context, url) => ,
                   ),
-                ),
+
               ),
             ),
             const SizedBox(width: 20),
@@ -43,28 +44,31 @@ class BestSellerListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      "Harry Potter and the Globet of Fire",
+                      "${book.volumeInfo!.title}",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle18,
                     ),
                   ),
-
                   const SizedBox(height: 3),
-                  Text("J.K Rowling ", style: Styles.textStyle14),
-
+                  Text("${book.volumeInfo!.authors?? "There's no author"}", style: Styles.textStyle14),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     //crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "19.99 \$ ",
+                        "Free \$ ",
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       BookRating(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        avgRating: book.volumeInfo!.averageRating ?? 3,
+                        ratingCount: book.volumeInfo!.ratingsCount ?? 7,
+
+
+
                       ),
                     ],
                   ),
